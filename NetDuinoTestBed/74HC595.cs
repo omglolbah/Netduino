@@ -21,6 +21,12 @@ namespace NetduinoPlusApplication1
             WriteByte(y);
             WriteByte(x);
         }
+        public void WriteBit(Boolean b)
+        {
+            SerialDataInput.Write(b);
+            ShiftRegisterClock.Write(true);
+            ShiftRegisterClock.Write(false);
+        }
         public void ClockStorage()
         {
             StorageRegisterClock.Write(true);
