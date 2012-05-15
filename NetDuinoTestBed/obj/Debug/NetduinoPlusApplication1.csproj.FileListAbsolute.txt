@@ -1,0 +1,60 @@
+C:\Users\ksh\AppData\Local\Temporary Projects\NetduinoPlusApplication1\bin\Debug\le\NetduinoPlusApplication1.exe
+C:\Users\ksh\AppData\Local\Temporary Projects\NetduinoPlusApplication1\bin\Debug\be\NetduinoPlusApplication1.exe
+C:\Users\ksh\AppData\Local\Temporary Projects\NetduinoPlusApplication1\bin\Debug\le\NetduinoPlusApplication1.pdb
+C:\Users\ksh\AppData\Local\Temporary Projects\NetduinoPlusApplication1\bin\Debug\be\NetduinoPlusApplication1.pdb
+C:\Users\ksh\AppData\Local\Temporary Projects\NetduinoPlusApplication1\bin\Debug\NetduinoPlusApplication1.exe
+C:\Users\ksh\AppData\Local\Temporary Projects\NetduinoPlusApplication1\bin\Debug\NetduinoPlusApplication1.pdb
+C:\Users\ksh\AppData\Local\Temporary Projects\NetduinoPlusApplication1\bin\Debug\le\NetduinoPlusApplication1.pe
+C:\Users\ksh\AppData\Local\Temporary Projects\NetduinoPlusApplication1\bin\Debug\le\NetduinoPlusApplication1.pdbx
+C:\Users\ksh\AppData\Local\Temporary Projects\NetduinoPlusApplication1\bin\Debug\be\NetduinoPlusApplication1.pe
+C:\Users\ksh\AppData\Local\Temporary Projects\NetduinoPlusApplication1\bin\Debug\be\NetduinoPlusApplication1.pdbx
+C:\Users\ksh\AppData\Local\Temporary Projects\NetduinoPlusApplication1\bin\Debug\LE\SecretLabs.NETMF.Hardware.pe
+C:\Users\ksh\AppData\Local\Temporary Projects\NetduinoPlusApplication1\bin\Debug\LE\SecretLabs.NETMF.Hardware.NetduinoPlus.pe
+C:\Users\ksh\AppData\Local\Temporary Projects\NetduinoPlusApplication1\bin\Debug\BE\SecretLabs.NETMF.Hardware.pe
+C:\Users\ksh\AppData\Local\Temporary Projects\NetduinoPlusApplication1\bin\Debug\BE\SecretLabs.NETMF.Hardware.NetduinoPlus.pe
+C:\Users\ksh\AppData\Local\Temporary Projects\NetduinoPlusApplication1\bin\Debug\LE\SecretLabs.NETMF.Hardware.pdbx
+C:\Users\ksh\AppData\Local\Temporary Projects\NetduinoPlusApplication1\bin\Debug\LE\SecretLabs.NETMF.Hardware.NetduinoPlus.pdbx
+C:\Users\ksh\AppData\Local\Temporary Projects\NetduinoPlusApplication1\bin\Debug\BE\SecretLabs.NETMF.Hardware.pdbx
+C:\Users\ksh\AppData\Local\Temporary Projects\NetduinoPlusApplication1\bin\Debug\BE\SecretLabs.NETMF.Hardware.NetduinoPlus.pdbx
+C:\Users\ksh\AppData\Local\Temporary Projects\NetduinoPlusApplication1\bin\Debug\SecretLabs.NETMF.Hardware.dll
+C:\Users\ksh\AppData\Local\Temporary Projects\NetduinoPlusApplication1\bin\Debug\SecretLabs.NETMF.Hardware.NetduinoPlus.dll
+C:\Users\ksh\AppData\Local\Temporary Projects\NetduinoPlusApplication1\bin\Debug\SecretLabs.NETMF.Hardware.pdb
+C:\Users\ksh\AppData\Local\Temporary Projects\NetduinoPlusApplication1\bin\Debug\SecretLabs.NETMF.Hardware.NetduinoPlus.pdb
+C:\Users\ksh\AppData\Local\Temporary Projects\NetduinoPlusApplication1\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\ksh\AppData\Local\Temporary Projects\NetduinoPlusApplication1\obj\Debug\TinyCLR_DebugReferences.cache
+C:\Users\ksh\AppData\Local\Temporary Projects\NetduinoPlusApplication1\obj\Debug\NetduinoPlusApplication1.exe
+C:\Users\ksh\AppData\Local\Temporary Projects\NetduinoPlusApplication1\obj\Debug\NetduinoPlusApplication1.pdb
+C:\Users\ksh\AppData\Local\Temporary Projects\NetduinoPlusApplication1\obj\Debug\be\NetduinoPlusApplication1.pe
+C:\Users\ksh\AppData\Local\Temporary Projects\NetduinoPlusApplication1\obj\Debug\be\NetduinoPlusApplication1.pdbx
+C:\Users\ksh\AppData\Local\Temporary Projects\NetduinoPlusApplication1\obj\Debug\le\NetduinoPlusApplication1.pe
+C:\Users\ksh\AppData\Local\Temporary Projects\NetduinoPlusApplication1\obj\Debug\le\NetduinoPlusApplication1.pdbx
+e:\prosjekt\kildekode\Csharp\Netduino\NetduinoPlusApplication1\NetduinoPlusApplication1\obj\Debug\ResolveAssemblyReference.cache
+e:\prosjekt\kildekode\Csharp\Netduino\NetduinoPlusApplication1\NetduinoPlusApplication1\obj\Debug\TinyCLR_DebugReferences.cache
+e:\prosjekt\kildekode\Csharp\Netduino\NetduinoPlusApplication1\NetduinoPlusApplication1\obj\Debug\NetduinoPlusApplication1.exe
+e:\prosjekt\kildekode\Csharp\Netduino\NetduinoPlusApplication1\NetduinoPlusApplication1\obj\Debug\NetduinoPlusApplication1.pdb
+e:\prosjekt\kildekode\Csharp\Netduino\NetduinoPlusApplication1\NetduinoPlusApplication1\bin\Debug\le\NetduinoPlusApplication1.exe
+e:\prosjekt\kildekode\Csharp\Netduino\NetduinoPlusApplication1\NetduinoPlusApplication1\bin\Debug\be\NetduinoPlusApplication1.exe
+e:\prosjekt\kildekode\Csharp\Netduino\NetduinoPlusApplication1\NetduinoPlusApplication1\bin\Debug\le\NetduinoPlusApplication1.pdb
+e:\prosjekt\kildekode\Csharp\Netduino\NetduinoPlusApplication1\NetduinoPlusApplication1\bin\Debug\be\NetduinoPlusApplication1.pdb
+e:\prosjekt\kildekode\Csharp\Netduino\NetduinoPlusApplication1\NetduinoPlusApplication1\bin\Debug\NetduinoPlusApplication1.exe
+e:\prosjekt\kildekode\Csharp\Netduino\NetduinoPlusApplication1\NetduinoPlusApplication1\bin\Debug\NetduinoPlusApplication1.pdb
+e:\prosjekt\kildekode\Csharp\Netduino\NetduinoPlusApplication1\NetduinoPlusApplication1\bin\Debug\le\NetduinoPlusApplication1.pe
+e:\prosjekt\kildekode\Csharp\Netduino\NetduinoPlusApplication1\NetduinoPlusApplication1\bin\Debug\le\NetduinoPlusApplication1.pdbx
+e:\prosjekt\kildekode\Csharp\Netduino\NetduinoPlusApplication1\NetduinoPlusApplication1\bin\Debug\be\NetduinoPlusApplication1.pe
+e:\prosjekt\kildekode\Csharp\Netduino\NetduinoPlusApplication1\NetduinoPlusApplication1\bin\Debug\be\NetduinoPlusApplication1.pdbx
+e:\prosjekt\kildekode\Csharp\Netduino\NetduinoPlusApplication1\NetduinoPlusApplication1\bin\Debug\LE\SecretLabs.NETMF.Hardware.pe
+e:\prosjekt\kildekode\Csharp\Netduino\NetduinoPlusApplication1\NetduinoPlusApplication1\bin\Debug\LE\SecretLabs.NETMF.Hardware.NetduinoPlus.pe
+e:\prosjekt\kildekode\Csharp\Netduino\NetduinoPlusApplication1\NetduinoPlusApplication1\bin\Debug\BE\SecretLabs.NETMF.Hardware.pe
+e:\prosjekt\kildekode\Csharp\Netduino\NetduinoPlusApplication1\NetduinoPlusApplication1\bin\Debug\BE\SecretLabs.NETMF.Hardware.NetduinoPlus.pe
+e:\prosjekt\kildekode\Csharp\Netduino\NetduinoPlusApplication1\NetduinoPlusApplication1\bin\Debug\LE\SecretLabs.NETMF.Hardware.pdbx
+e:\prosjekt\kildekode\Csharp\Netduino\NetduinoPlusApplication1\NetduinoPlusApplication1\bin\Debug\LE\SecretLabs.NETMF.Hardware.NetduinoPlus.pdbx
+e:\prosjekt\kildekode\Csharp\Netduino\NetduinoPlusApplication1\NetduinoPlusApplication1\bin\Debug\BE\SecretLabs.NETMF.Hardware.pdbx
+e:\prosjekt\kildekode\Csharp\Netduino\NetduinoPlusApplication1\NetduinoPlusApplication1\bin\Debug\BE\SecretLabs.NETMF.Hardware.NetduinoPlus.pdbx
+e:\prosjekt\kildekode\Csharp\Netduino\NetduinoPlusApplication1\NetduinoPlusApplication1\bin\Debug\SecretLabs.NETMF.Hardware.dll
+e:\prosjekt\kildekode\Csharp\Netduino\NetduinoPlusApplication1\NetduinoPlusApplication1\bin\Debug\SecretLabs.NETMF.Hardware.NetduinoPlus.dll
+e:\prosjekt\kildekode\Csharp\Netduino\NetduinoPlusApplication1\NetduinoPlusApplication1\bin\Debug\SecretLabs.NETMF.Hardware.pdb
+e:\prosjekt\kildekode\Csharp\Netduino\NetduinoPlusApplication1\NetduinoPlusApplication1\bin\Debug\SecretLabs.NETMF.Hardware.NetduinoPlus.pdb
+e:\prosjekt\kildekode\Csharp\Netduino\NetduinoPlusApplication1\NetduinoPlusApplication1\obj\Debug\be\NetduinoPlusApplication1.pe
+e:\prosjekt\kildekode\Csharp\Netduino\NetduinoPlusApplication1\NetduinoPlusApplication1\obj\Debug\be\NetduinoPlusApplication1.pdbx
+e:\prosjekt\kildekode\Csharp\Netduino\NetduinoPlusApplication1\NetduinoPlusApplication1\obj\Debug\le\NetduinoPlusApplication1.pe
+e:\prosjekt\kildekode\Csharp\Netduino\NetduinoPlusApplication1\NetduinoPlusApplication1\obj\Debug\le\NetduinoPlusApplication1.pdbx
