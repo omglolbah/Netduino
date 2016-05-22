@@ -1,14 +1,19 @@
 ﻿using System;
+using System.Collections;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 using Microsoft.SPOT;
 using Microsoft.SPOT.Hardware;
+using System.Text;
+
 using SecretLabs.NETMF.Hardware;
-
 using SecretLabs.NETMF.Hardware.NetduinoPlus;
-
 using PWM = SecretLabs.NETMF.Hardware.PWM;
+
+using NWebREST.Web;
+using NetDuinoUtils.Utils;
+using NetDuinoUtils.TMP100;
 
 namespace NetduinoRGBController
 {
@@ -16,9 +21,58 @@ namespace NetduinoRGBController
     
     public class Program
     {
+        private static void InitializeServer()
+        {
+            // Initialize the network interface with a static IP
+            Microsoft.SPOT.Net.NetworkInformation.NetworkInterface.GetAllNetworkInterfaces()[0].EnableStaticIP("10.0.0.225", "255.255.255.0", "10.0.0.4");
+            Debug.Print(Microsoft.SPOT.Net.NetworkInformation.NetworkInterface.GetAllNetworkInterfaces()[0].IPAddress);
+        }
 
         public static void Main()
         {
+            //set static ip
+            InitializeServer();
+
+            LedPulser.Instance.Pulse(1000); 
+            
+
+            Debug.Print("Webserver initialized! [" + DateTime.Now.TimeOfDay + "]");
+
+            WebServerWrapper.InitializeWebEndPoints(new ArrayList
+                                                {
+                                                    //new BasicPage(),
+                                                    new Endpoints.BlinkMWeb(),
+                                                    new Endpoints.TemperaturePage(),
+                                                    new Endpoints.ButtonWeb()
+                                                });
+
+            WebServerWrapper.StartWebServer();
+
+            RunUtil.KeepRunning();
+
+                //double temp = GetTemperature();
+                
+                //byte[] data = _BlinkM.ReadSomething(0x67, 3);
+                //Debug.Print("data=" + data[0] + "-" + data[1] + "-" + data[2]);
+
+                //double r = temp * 6;
+                //byte rb = (byte)r;
+                //_BlinkM.WriteColor(rb, 0, 0);
+                //Thread.Sleep((int)temp*100);
+
+                /*
+                _BlinkM.WriteColor(0, 0, 0);
+                Thread.Sleep(500);
+                _BlinkM.WriteColor(255, 0, 0);
+                Thread.Sleep(500);
+                _BlinkM.WriteColor(0, 0, 255);
+                Thread.Sleep(500);
+                _BlinkM.WriteColor(0, 0, 0);
+                Thread.Sleep(1);
+                 */
+
+            #region RGB
+            /*
             RGBOutput rgb = new RGBOutput(Pins.GPIO_PIN_D6, Pins.GPIO_PIN_D9, Pins.GPIO_PIN_D10);
             //static PWM redChannel = new PWM(Pins.GPIO_PIN_D6);
             //static PWM greenChannel = new PWM(Pins.GPIO_PIN_D9);
@@ -66,8 +120,19 @@ namespace NetduinoRGBController
                     Thread.Sleep(delay);
                 }
             }
+            */
+            #endregion
         }
-
+    }
+    public class Color
+    {
+        public int Red {get;set; }
+        public int Green { get; set; }
+        public int Blue { get; set; }
+        public override string ToString()
+        {
+            return "Color {" + Red + ":" + Green + ":" + Blue + "}";
+        }
     }
     public class RGBOutput
     {

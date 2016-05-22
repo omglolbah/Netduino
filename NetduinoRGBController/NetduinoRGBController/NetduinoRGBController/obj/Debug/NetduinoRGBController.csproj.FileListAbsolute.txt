@@ -40,3 +40,15 @@ C:\Users\ksh\Documents\GitHub\Netduino\NetduinoRGBController\NetduinoRGBControll
 C:\Users\ksh\Documents\GitHub\Netduino\NetduinoRGBController\NetduinoRGBController\NetduinoRGBController\bin\Debug\BE\SecretLabs.NETMF.Hardware.PWM.pdbx
 C:\Users\ksh\Documents\GitHub\Netduino\NetduinoRGBController\NetduinoRGBController\NetduinoRGBController\bin\Debug\SecretLabs.NETMF.Hardware.PWM.dll
 C:\Users\ksh\Documents\GitHub\Netduino\NetduinoRGBController\NetduinoRGBController\NetduinoRGBController\bin\Debug\SecretLabs.NETMF.Hardware.PWM.pdb
+C:\Users\ksh\Documents\GitHub\Netduino\NetduinoRGBController\NetduinoRGBController\NetduinoRGBController\bin\Debug\LE\NetDuinoUtils.pe
+C:\Users\ksh\Documents\GitHub\Netduino\NetduinoRGBController\NetduinoRGBController\NetduinoRGBController\bin\Debug\LE\NWebREST.pe
+C:\Users\ksh\Documents\GitHub\Netduino\NetduinoRGBController\NetduinoRGBController\NetduinoRGBController\bin\Debug\BE\NetDuinoUtils.pe
+C:\Users\ksh\Documents\GitHub\Netduino\NetduinoRGBController\NetduinoRGBController\NetduinoRGBController\bin\Debug\BE\NWebREST.pe
+C:\Users\ksh\Documents\GitHub\Netduino\NetduinoRGBController\NetduinoRGBController\NetduinoRGBController\bin\Debug\LE\NetDuinoUtils.pdbx
+C:\Users\ksh\Documents\GitHub\Netduino\NetduinoRGBController\NetduinoRGBController\NetduinoRGBController\bin\Debug\LE\NWebREST.pdbx
+C:\Users\ksh\Documents\GitHub\Netduino\NetduinoRGBController\NetduinoRGBController\NetduinoRGBController\bin\Debug\BE\NetDuinoUtils.pdbx
+C:\Users\ksh\Documents\GitHub\Netduino\NetduinoRGBController\NetduinoRGBController\NetduinoRGBController\bin\Debug\BE\NWebREST.pdbx
+C:\Users\ksh\Documents\GitHub\Netduino\NetduinoRGBController\NetduinoRGBController\NetduinoRGBController\bin\Debug\NetDuinoUtils.dll
+C:\Users\ksh\Documents\GitHub\Netduino\NetduinoRGBController\NetduinoRGBController\NetduinoRGBController\bin\Debug\NWebREST.dll
+C:\Users\ksh\Documents\GitHub\Netduino\NetduinoRGBController\NetduinoRGBController\NetduinoRGBController\bin\Debug\NetDuinoUtils.pdb
+C:\Users\ksh\Documents\GitHub\Netduino\NetduinoRGBController\NetduinoRGBController\NetduinoRGBController\bin\Debug\NWebREST.pdb

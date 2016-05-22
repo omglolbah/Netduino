@@ -32,6 +32,9 @@
   </PropertyGroup>
   <Import Project="$(NetMfTargetsBaseDir)$(TargetFrameworkVersion)\CSharp.Targets" />
   <ItemGroup>
+    <Compile Include="Endpoints\BlinkMWeb.cs" />
+    <Compile Include="Endpoints\ButtonWeb.cs" />
+    <Compile Include="Endpoints\TemperatureWeb.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
   </ItemGroup>
@@ -46,4 +49,15 @@
     <Reference Include="SecretLabs.NETMF.Hardware.PWM, Version=4.2.2.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="System" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\NetDuinoUtils\NetDuinoUtils.csproj">
+      <Project>{BB6C5BB1-D5DC-4FC1-AD4C-8D77CF0F7226}</Project>
+      <Name>NetDuinoUtils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\NWebREST\NWebREST.csproj">
+      <Project>{2343B2DB-A007-4724-A3B5-8547A9046D80}</Project>
+      <Name>NWebREST</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
 </Project>

@@ -5,6 +5,10 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetduinoRGBController", "NetduinoRGBController\NetduinoRGBController.csproj", "{E992DAF3-1E6F-4C78-A80E-8B916CB77BBA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NWebREST", "..\..\NWebREST\NWebREST.csproj", "{2343B2DB-A007-4724-A3B5-8547A9046D80}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetDuinoUtils", "..\..\NetDuinoUtils\NetDuinoUtils.csproj", "{BB6C5BB1-D5DC-4FC1-AD4C-8D77CF0F7226}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,6 +21,14 @@ Global
 		{E992DAF3-1E6F-4C78-A80E-8B916CB77BBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E992DAF3-1E6F-4C78-A80E-8B916CB77BBA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E992DAF3-1E6F-4C78-A80E-8B916CB77BBA}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{2343B2DB-A007-4724-A3B5-8547A9046D80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2343B2DB-A007-4724-A3B5-8547A9046D80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2343B2DB-A007-4724-A3B5-8547A9046D80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2343B2DB-A007-4724-A3B5-8547A9046D80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB6C5BB1-D5DC-4FC1-AD4C-8D77CF0F7226}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB6C5BB1-D5DC-4FC1-AD4C-8D77CF0F7226}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB6C5BB1-D5DC-4FC1-AD4C-8D77CF0F7226}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB6C5BB1-D5DC-4FC1-AD4C-8D77CF0F7226}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
