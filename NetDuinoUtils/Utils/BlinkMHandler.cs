@@ -41,7 +41,7 @@ namespace NetDuinoUtils.Utils
 
         #endregion
 
-        #region Writer
+        #region Read/Write
 
         public void SetColor(byte r, byte g, byte b)
         {
@@ -55,6 +55,28 @@ namespace NetDuinoUtils.Utils
             lock (_lockObject)
             {
                 _blinkm.FadeColor(r, g, b);
+            }
+        }
+        public void StopScript()
+        {
+            lock (_lockObject)
+            {
+                _blinkm.StopScript();
+            }
+        }
+        public void PlayScript(byte scriptid, byte repeats, byte startline)
+        {
+            lock (_lockObject)
+            {
+                _blinkm.PlayScript(scriptid,repeats,startline);
+            }
+        }
+
+        public byte[] GetColor()
+        {
+            lock (_lockObject)
+            {
+                return _blinkm.GetColor();
             }
         }
         #endregion

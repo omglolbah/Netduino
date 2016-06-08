@@ -54,6 +54,7 @@ namespace Endpoints
                                    {
                                        Action = ButtonStatus,
                                        Name = "ButtonStatus",
+                                       ReadOnly = true,
                                        Description = "Outputs the button status of the on-board push button. "
                                    }
                            };

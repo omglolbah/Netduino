@@ -37,6 +37,7 @@ namespace NetDuinoUtils.Utils
         private TMP100Reader()
         {
             _tmp = new TMP100Sensor(0x4a);
+            _tmp.Resolution = TMP100Sensor.ResolutionBits.R00625;
         }
 
         #endregion

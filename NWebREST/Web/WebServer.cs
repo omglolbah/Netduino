@@ -3,6 +3,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
+using System.Collections;
 using Microsoft.SPOT;
 using Microsoft.SPOT.Hardware;
 using Microsoft.SPOT.Net.NetworkInformation;
@@ -99,26 +100,34 @@ namespace NWebREST.Web
             {
                 return null;
             }
-            string commandData;
+            string[] lines = rawData.Split('\n');
+            for (int i = 0; i < lines.Length; i += 1)
+            { 
+                lines[i] = lines[i].Trim();
+            }
 
-            // Remove GET + Space
-            if (rawData.Length > 5)
-                commandData = rawData.Substring(5, rawData.Length - 5);
-            else
-                return null;
+            string reqType = lines[0].Substring(0, lines[0].IndexOf(' ')).Trim().ToUpper();
+            if(reqType != "GET" && reqType != "POST")
+            {
+                return null; // not a handled type. Should probably fix this at some point...
+            }
+            int idx = lines[0].IndexOf('/')+1;
+            int len = lines[0].LastIndexOf(' ')-idx;
 
-            // Remove everything after first space
-            int idx = commandData.IndexOf("HTTP/1.1");
-            commandData = commandData.Substring(0, idx - 1);
+            string reqData = lines[0].Substring(idx, len);
 
-            // Split command and arguments
-            string[] parts = commandData.Split('/');
+            string[] reqArgs = reqData.Split('/');
 
-            string command = null;
-            if (parts.Length > 0)
+            string reqCommand = null;
+            if (reqArgs.Length > 0)
             {
                 // Parse first part to command
-                command = parts[0].ToLower();
+                reqCommand = reqArgs[0];
+            }
+            else
+            {
+                //No command sent, assume root reply
+                return null;
             }
 
             // http://url/foo/test
@@ -126,26 +135,41 @@ namespace NWebREST.Web
             EndPoint returnEndPoint = null;
             foreach (EndPoint endPoint in _allowedEndPoints)
             {
-                if (command != null && endPoint.Name.ToLower() == command.ToLower())
+                if (endPoint.Name.ToLower() == reqCommand.ToLower())
                 {
-                    returnEndPoint = endPoint;
-                    break;
+                    //this feels like a kludge... blergh
+                    if(endPoint.ReadOnly == true  && reqType == "GET" ||
+                       endPoint.ReadOnly == false && reqType == "POST")
+                    {
+                        Debug.Print("reqType[" + reqType + "]");
+                        Debug.Print("Endpoint[" + endPoint.Name + "]");
+                        returnEndPoint = endPoint;
+                        break;
+                    }
                 }
             }
             if (returnEndPoint == null)
             {
                 return null;
             }
-            
-            var arguments = new string[parts.Length - 1];
-
-            for (int i = 1; i < parts.Length; i++)
-            {
-                arguments[i - 1] = parts[i];
+            if (reqType == "GET") 
+            { 
+                var arguments = new string[reqArgs.Length - 1];
+    
+                for (int i = 1; i < reqArgs.Length; i++)
+                {
+                    arguments[i - 1] = reqArgs[i];
+                }
+                returnEndPoint.Arguments = arguments;
             }
+            else if (reqType == "POST")
+            {
+                string[] argString = lines[lines.Length - 1].Split('&');
 
-            returnEndPoint.Arguments = arguments;
-
+                returnEndPoint.Arguments = argString;
+            }
+            
+            
             return returnEndPoint;
         }
 

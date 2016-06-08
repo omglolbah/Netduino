@@ -31,6 +31,11 @@ namespace NWebREST.Web
         /// </summary>
         public String Name { get; set; }
 
+        /// <summary>
+        /// Is this endpoint read-only? (duh)
+        /// </summary>
+        public Boolean ReadOnly { get; set; }
+
         public string[] Arguments { set { _arguments = value; } }
 
         /// <summary>

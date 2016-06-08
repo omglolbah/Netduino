@@ -19,6 +19,7 @@ namespace Endpoints
                         {
                             Action = TMP100,
                             Name = "tmp100",
+                            ReadOnly = true,
                             Description = "Returns the temperature."
                         }
                 };

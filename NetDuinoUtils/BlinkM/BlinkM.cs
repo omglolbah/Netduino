@@ -37,7 +37,7 @@ namespace NetDuinoUtils.BlinkM
         public void SetColor(Byte red, Byte green, Byte blue)
         {   
             // Command|Red|Green|Blue
-            var data = new[] { (Byte)'n',red,green,blue };
+            var data = new[] { (Byte)'n',red, green, blue };
             _i2Cadapter.WriteBytes(_i2C, data);
         }
         public void FadeColor(Byte red, Byte green, Byte blue)
@@ -46,7 +46,23 @@ namespace NetDuinoUtils.BlinkM
             var data = new[] { (Byte)'c', red, green, blue };
             _i2Cadapter.WriteBytes(_i2C, data);
         }
-        public byte[] ReadSomething(byte cmd, byte bytecount)
+        public void FadeRandomColor(Byte red, Byte green, Byte blue)
+        {
+            // Command|Red|Green|Blue
+            var data = new[] { (Byte)'C', red, green, blue };
+            _i2Cadapter.WriteBytes(_i2C, data);
+        }
+        public void PlayScript(Byte scriptid, Byte repeats, Byte startline)
+        {
+            // Command|script number|repeat count|starting line
+            var data = new[] { (Byte)'C', scriptid, repeats, startline};
+            _i2Cadapter.WriteBytes(_i2C, data);
+        }
+        public byte[] GetColor()
+        {
+            return ReadFromDevice((Byte)'g', 3);
+        }
+        public byte[] ReadFromDevice(byte cmd, byte bytecount)
         {
             _i2Cadapter.WriteBytes(_i2C, new byte[] { cmd });
             
