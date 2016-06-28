@@ -32,7 +32,21 @@ namespace Endpoints
 
         private string TMP100(EndPointActionArguments misc, string[] items)
         {
-            return "Temperature is: " + TMP100Reader.Instance.GetTemperature();
+            double tempC = TMP100Reader.Instance.GetTemperature();
+            double tempF = tempC * 1.8 + 32;
+            if (misc.ReturnType == HelperClass.ReturnType.HTML)
+            {
+                return HTMLUtils.BuildHTML("Temperature is: " + tempC + "C / " + tempF + "F at Desk.");
+            }
+            else if (misc.ReturnType == HelperClass.ReturnType.JSON)
+            {
+                return @"
+{""sensors"":[
+    {""Location"":""Desk"", ""TempC"":""" + tempC + @""", ""TempF"":""" + tempF + @"""},
+    {""Location"":""Dummy"", ""TempC"":"" " + tempC + @""", ""TempF"":""" + tempF + @"""}
+]}";
+            }
+            throw new NotImplementedException("Invalid returntype: " + misc.ReturnType.ToString());
         }
 
         #endregion

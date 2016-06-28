@@ -8,6 +8,7 @@ namespace NWebREST.Web
     public class EndPointActionArguments
     {
         public Socket Connection { get; set; }
+        public NetDuinoUtils.Utils.HelperClass.ReturnType ReturnType {get;set;}
     }   
     
     public class EndPoint

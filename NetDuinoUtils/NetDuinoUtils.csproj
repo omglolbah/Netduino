@@ -37,14 +37,18 @@
     <Compile Include="SerLCD\SerialLCD.cs" />
     <Compile Include="I2CMulti\I2CAdapter.cs" />
     <Compile Include="TMP100\TMP100.cs" />
-    <Compile Include="Utils\ButtonUtils.cs" />
-    <Compile Include="Utils\LcdWriter.cs" />
-    <Compile Include="Utils\BlinkMHandler.cs" />
-    <Compile Include="Utils\TMP100Reader.cs" />
-    <Compile Include="Utils\LedPulser.cs" />
+    <Compile Include="TMP100\TMP100Logger.cs" />
+    <Compile Include="Button\ButtonUtils.cs" />
+    <Compile Include="Utils\HelperClass.cs" />
+    <Compile Include="Utils\HTMLUtils.cs" />
+    <Compile Include="SerLCD\LcdWriter.cs" />
+    <Compile Include="BlinkM\BlinkMHandler.cs" />
+    <Compile Include="TMP100\TMP100Reader.cs" />
+    <Compile Include="OnboardLED\LedPulser.cs" />
     <Compile Include="Utils\RunUtil.cs" />
     <Compile Include="Utils\StringUtils.cs" />
     <Compile Include="Utils\ThreadUtil.cs" />
+    <Compile Include="Utils\TimeSyncNTP.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.SPOT.Hardware" />

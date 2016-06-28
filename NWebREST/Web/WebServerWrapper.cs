@@ -45,7 +45,7 @@ public static class WebServerWrapper
     {
         _server = new WebServer(port, enabledLedStatus);
 
-        _server.EndPointReceived += EndPointHandler;
+        _server.RequestReceived += RequestHandler;
 
         foreach (EndPoint endpoint in _endPoints)
         {
@@ -58,20 +58,21 @@ public static class WebServerWrapper
     }
 
     /// <summary>
-    /// We'll get an endpoint invokcation from the web server
+    /// We'll get an endpoint invokation from the web server
     /// so we can execute the endpoint action and response based on its supplied arguments
     /// in a seperate thread, hence the event. we'll set the event return string
     /// so the web server can know how to respond back to the ui in a seperate thread
     /// </summary>
     /// <param name="source"></param>
     /// <param name="e"></param>
-    private static void EndPointHandler(object source, EndPoinEventArgs e)
+    private static void RequestHandler(object source, RequestEventArgs e)
     {
         var misc = new EndPointActionArguments
                         {
-                            Connection = e.Connection
+                            Connection = e.Connection,
+                            ReturnType = e.ReturnType
                         };
-
+        
         e.ReturnString = e.Command.Execute(misc);
 
         // we can override the manual use of the socket if we returned a value other than null

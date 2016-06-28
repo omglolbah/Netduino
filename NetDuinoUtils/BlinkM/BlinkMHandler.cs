@@ -57,11 +57,11 @@ namespace NetDuinoUtils.Utils
                 _blinkm.FadeColor(r, g, b);
             }
         }
-        public void StopScript()
+        public void FadeRandomColor(byte r, byte g, byte b)
         {
             lock (_lockObject)
             {
-                _blinkm.StopScript();
+                _blinkm.FadeRandomColor(r, g, b);
             }
         }
         public void PlayScript(byte scriptid, byte repeats, byte startline)
@@ -71,7 +71,13 @@ namespace NetDuinoUtils.Utils
                 _blinkm.PlayScript(scriptid,repeats,startline);
             }
         }
-
+        public void StopScript()
+        {
+            lock (_lockObject)
+            {
+                _blinkm.StopScript();
+            }
+        }
         public byte[] GetColor()
         {
             lock (_lockObject)

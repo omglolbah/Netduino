@@ -55,7 +55,7 @@ namespace NetDuinoUtils.BlinkM
         public void PlayScript(Byte scriptid, Byte repeats, Byte startline)
         {
             // Command|script number|repeat count|starting line
-            var data = new[] { (Byte)'C', scriptid, repeats, startline};
+            var data = new[] { (Byte)'p', scriptid, repeats, startline};
             _i2Cadapter.WriteBytes(_i2C, data);
         }
         public byte[] GetColor()

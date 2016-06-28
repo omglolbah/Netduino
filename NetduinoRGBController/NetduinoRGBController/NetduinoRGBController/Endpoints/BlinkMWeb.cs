@@ -31,6 +31,20 @@ namespace Endpoints
                         },
                     new EndPoint
                         {
+                            Action = FadeRandomColor,
+                            Name = "FadeRandomColor",
+                            ReadOnly = false,
+                            Description = "Fades to a random R/G/B value on the BlinkM device."
+                        },
+                    new EndPoint
+                        {
+                            Action = PlayScript,
+                            Name = "PlayScript",
+                            ReadOnly = false,
+                            Description = "Plays a script on the BlinkM device."
+                        },
+                    new EndPoint
+                        {
                             Action = StopScript,
                             Name = "StopScript",
                             ReadOnly = false,
@@ -123,9 +137,9 @@ namespace Endpoints
                 return "Missing arguments. RGB values in range 0-255 needed!\n\r";
             }
 
-            BlinkMHandler.Instance.FadeColor(r, g, b);
+            BlinkMHandler.Instance.FadeRandomColor(r, g, b);
 
-            return "Set color to RGB[" + r + "," + g + "," + b + "]\n\r";
+            return "Fading to random color. Randomness variables[" + r + "," + g + "," + b + "]\n\r";
         }
         private string PlayScript(EndPointActionArguments misc, string[] items)
         {

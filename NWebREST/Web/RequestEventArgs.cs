@@ -5,7 +5,7 @@ namespace NWebREST.Web
     /// <summary>
     /// Event arguments of an incoming web command.
     /// </summary>
-    public class EndPoinEventArgs
+    public class RequestEventArgs
     {
         /// <summary>
         /// Allows us to tell the web server that we manually replied back
@@ -15,24 +15,35 @@ namespace NWebREST.Web
         /// </summary>
         public bool ManualSent { get; set; }
 
-        public EndPoinEventArgs()
+        public RequestEventArgs()
         {
         }
 
-        public EndPoinEventArgs(EndPoint command)
+        public RequestEventArgs(Request command)
         {
-            Command = command;
+            Command = command.ReqEndPoint;
+            ReturnType = NetDuinoUtils.Utils.HelperClass.ReturnType.HTML;
         }
 
-        public EndPoinEventArgs(EndPoint command, Socket connection)
+        public RequestEventArgs(Request command, Socket connection)
         {
-            Command = command;
+            Command = command.ReqEndPoint;
             Connection = connection;
             Connection.SendTimeout = 5000;
+            ReturnType = NetDuinoUtils.Utils.HelperClass.ReturnType.HTML;
         }
+        public RequestEventArgs(Request command, Socket connection, NetDuinoUtils.Utils.HelperClass.ReturnType returntype)
+        {
+            Command = command.ReqEndPoint;
+            Connection = connection;
+            Connection.SendTimeout = 5000;
+            ReturnType = returntype;
+        }
+
 
         public EndPoint Command { get; set; }
         public string ReturnString { get; set; }
         public Socket Connection { get; set; }
+        public NetDuinoUtils.Utils.HelperClass.ReturnType ReturnType { get; set; }
     }
 }

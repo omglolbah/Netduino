@@ -63,13 +63,13 @@ namespace NWebREST.Web
         /// <summary>
         /// Delegate for the EndPointReceived event.
         /// </summary>
-        public delegate void EndPointReceivedHandler(object source, EndPoinEventArgs e);
+        public delegate void EndPointReceivedHandler(object source, RequestEventArgs e);
 
         /// <summary>
         /// EndPointReceived event is triggered when a valid command (plus parameters) is received.
         /// Valid commands are defined in the AllowedEndPoints property.
         /// </summary>
-        public event EndPointReceivedHandler EndPointReceived;
+        public event EndPointReceivedHandler RequestReceived;
 
         #endregion
 
@@ -94,7 +94,7 @@ namespace NWebREST.Web
         /// </summary>
         /// <param name="rawData">The raw web request (including headers).</param>
         /// <returns>The parsed WebCommand if the request is valid, otherwise Null.</returns>
-        private EndPoint InterpretRequest(string rawData)
+        private Request InterpretRequest(string rawData)
         {
             if(rawData == null)
             {
@@ -118,11 +118,11 @@ namespace NWebREST.Web
 
             string[] reqArgs = reqData.Split('/');
 
-            string reqCommand = null;
+            string[] reqCommand = null;
             if (reqArgs.Length > 0)
             {
                 // Parse first part to command
-                reqCommand = reqArgs[0];
+                reqCommand = reqArgs[0].Split('.');
             }
             else
             {
@@ -132,10 +132,10 @@ namespace NWebREST.Web
 
             // http://url/foo/test
             // Check if this is a valid command
-            EndPoint returnEndPoint = null;
+            Request returnRequest = new Request();
             foreach (EndPoint endPoint in _allowedEndPoints)
             {
-                if (endPoint.Name.ToLower() == reqCommand.ToLower())
+                if (endPoint.Name.ToLower() == reqCommand[0].ToLower())
                 {
                     //this feels like a kludge... blergh
                     if(endPoint.ReadOnly == true  && reqType == "GET" ||
@@ -143,12 +143,20 @@ namespace NWebREST.Web
                     {
                         Debug.Print("reqType[" + reqType + "]");
                         Debug.Print("Endpoint[" + endPoint.Name + "]");
-                        returnEndPoint = endPoint;
+                        returnRequest.ReqEndPoint = endPoint;
+                        if (reqCommand.Length > 1 && reqCommand[1].ToLower() == "json")
+                        {
+                            returnRequest.ReqReturnType = HelperClass.ReturnType.JSON;
+                        }
+                        else
+                        {
+                            returnRequest.ReqReturnType = HelperClass.ReturnType.HTML;
+                        }
                         break;
                     }
                 }
             }
-            if (returnEndPoint == null)
+            if (returnRequest.ReqEndPoint == null)
             {
                 return null;
             }
@@ -160,17 +168,17 @@ namespace NWebREST.Web
                 {
                     arguments[i - 1] = reqArgs[i];
                 }
-                returnEndPoint.Arguments = arguments;
+                returnRequest.ReqEndPoint.Arguments = arguments;
             }
             else if (reqType == "POST")
             {
                 string[] argString = lines[lines.Length - 1].Split('&');
 
-                returnEndPoint.Arguments = argString;
+                returnRequest.ReqEndPoint.Arguments = argString;
             }
-            
-            
-            return returnEndPoint;
+
+
+            return returnRequest;
         }
 
         /// <summary>
@@ -198,9 +206,9 @@ namespace NWebREST.Web
                         // Convert to string, will include HTTP headers.
                         var rawData = new string(Encoding.UTF8.GetChars(bytes));
 
-                        EndPoint endPoint = InterpretRequest(rawData);
+                        Request request = InterpretRequest(rawData);
 
-                        if (endPoint != null)
+                        if (request != null)
                         {
                             if (_enableLedStatus)
                             {
@@ -208,13 +216,13 @@ namespace NWebREST.Web
                             }
 
                             // dispatch the endpoint
-                            var e = new EndPoinEventArgs(endPoint, connection);
+                            var e = new RequestEventArgs(request, connection, request.ReqReturnType);
 
-                            if (EndPointReceived != null)
+                            if (RequestReceived != null)
                             {
                                 ThreadUtil.SafeQueueWorkItem(() =>
                                 {
-                                    EndPointReceived(null, e);
+                                    RequestReceived(null, e);
 
                                     if (e.ManualSent)
                                     {
@@ -223,7 +231,6 @@ namespace NWebREST.Web
                                     else
                                     {
                                         var response = e.ReturnString;
-
                                         SendResponse(response, connection);
                                     }
                                 });
@@ -255,6 +262,8 @@ namespace NWebREST.Web
     <div class=""main"">
         <ul>
 ";
+                
+                
                 foreach (EndPoint endpoint in _allowedEndPoints)
                 {
                     returnString +=
@@ -276,7 +285,8 @@ namespace NWebREST.Web
             return
                 @"
 body{
-    
+    background-color: #000000;
+    color: #bbbbbb
 }
 
 ul { 
@@ -380,6 +390,19 @@ a {
         public void RegisterEndPoint(EndPoint endPoint)
         {
             _allowedEndPoints.Add(endPoint);
+        }
+    }
+    
+    public class Request
+    {
+        public EndPoint ReqEndPoint { get; set; }
+        public NetDuinoUtils.Utils.HelperClass.ReturnType ReqReturnType { get; set; }
+        public Request()
+        { }
+        public Request(EndPoint ep, NetDuinoUtils.Utils.HelperClass.ReturnType rt)
+        {
+            ReqEndPoint = ep;
+            ReqReturnType = rt;
         }
     }
 }

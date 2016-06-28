@@ -26,6 +26,7 @@ namespace NetduinoRGBController
             // Initialize the network interface with a static IP
             Microsoft.SPOT.Net.NetworkInformation.NetworkInterface.GetAllNetworkInterfaces()[0].EnableStaticIP("10.0.0.225", "255.255.255.0", "10.0.0.4");
             Debug.Print(Microsoft.SPOT.Net.NetworkInformation.NetworkInterface.GetAllNetworkInterfaces()[0].IPAddress);
+            NetDuinoUtils.Utils.SyncTime.Update("time.nist.gov", 1);
         }
 
         public static void Main()
