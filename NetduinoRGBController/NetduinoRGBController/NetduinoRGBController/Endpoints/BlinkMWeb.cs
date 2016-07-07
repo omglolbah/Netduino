@@ -52,6 +52,20 @@ namespace Endpoints
                         },
                     new EndPoint
                         {
+                            Action = SetTimeAdjust,
+                            Name = "SetTimeAdjust",
+                            ReadOnly = false,
+                            Description = "Sets the speed of script playback on the BlinkM device."
+                        },
+                    new EndPoint
+                        {
+                            Action = SetStartupParameters,
+                            Name = "SetStartupParameters",
+                            ReadOnly = false,
+                            Description = "Sets the startup parameters on the BlinkM device."
+                        },
+                    new EndPoint
+                        {
                             Action = GetColor,
                             Name = "GetColor",
                             ReadOnly = true,
@@ -141,6 +155,34 @@ namespace Endpoints
 
             return "Fading to random color. Randomness variables[" + r + "," + g + "," + b + "]\n\r";
         }
+
+        private string SetStartupParameters(EndPointActionArguments misc, string[] items)
+        {
+            //Byte run, Byte scriptid, Byte repeats, Byte fade, SByte time)
+            byte run, scriptid, repeats,fade = 0;
+            SByte time = 0;
+
+            if (items != null && items.Length > 1)
+            {
+                run = byte.Parse(GetArgByName(items, "run", 15));
+                scriptid = byte.Parse(GetArgByName(items, "scriptid", 0));
+                repeats = byte.Parse(GetArgByName(items, "repeats", 0));
+                fade = byte.Parse(GetArgByName(items, "fade", 15));
+                time = SByte.Parse(GetArgByName(items, "time", 0));
+            }
+            else
+            {
+                return "run = 0/1\n\r" +
+                       "scriptid = 0-18\n\r" +
+                       "repeats = byte, 0 for autorepeat\n\r" +
+                       "fade = 0-255 (default 15)\n\r" +
+                       "time = -128-127 (default 0)";
+            }
+
+            BlinkMHandler.Instance.SetStartupParameters(run, scriptid, repeats, fade, time);
+
+            return "Set start parameters to run[" + run + "] scriptid[" + scriptid + "] repeats[" + repeats + "] fade[" + fade + "] time[" + time + "]";
+        }
         private string PlayScript(EndPointActionArguments misc, string[] items)
         {
             byte scriptid, repeats, startline = 0;
@@ -160,6 +202,24 @@ namespace Endpoints
 
             return "Playing script ["+scriptid+"] repeating [" + repeats + "] starting at line [" + startline + "]\n\r";
         }
+        private string SetTimeAdjust(EndPointActionArguments misc, string[] items)
+        {
+            SByte speed = 0;
+
+            if (items != null && items.Length == 1)
+            {
+                speed = SByte.Parse(GetArgByName(items, "speed", 0));
+            }
+            else
+            {
+                return "speed = -128 - 127 \n\r";
+            }
+
+            BlinkMHandler.Instance.SetTimeAdjust(speed);
+
+            return "Setting time adjust to [" + speed + "]\n\r";
+        }
+
         private string StopScript(EndPointActionArguments misc, string[] items)
         {
             BlinkMHandler.Instance.StopScript();

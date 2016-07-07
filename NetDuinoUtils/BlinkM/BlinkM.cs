@@ -33,7 +33,6 @@ namespace NetDuinoUtils.BlinkM
             var data = new[] { (Byte)'o'};
             _i2Cadapter.WriteBytes(_i2C, data);
         }
-    
         public void SetColor(Byte red, Byte green, Byte blue)
         {   
             // Command|Red|Green|Blue
@@ -58,6 +57,18 @@ namespace NetDuinoUtils.BlinkM
             var data = new[] { (Byte)'p', scriptid, repeats, startline};
             _i2Cadapter.WriteBytes(_i2C, data);
         }
+        public void SetTimeAdjust(SByte speed)
+        {
+            var data = new[] { (Byte)'t', (byte)speed };
+            Debug.Print("Input speed["+speed+"] writing [" + data[1] +"]");
+            _i2Cadapter.WriteBytes(_i2C, data);
+        }
+        public void SetStartupParameters(Byte run, Byte scriptid, Byte repeats, Byte fade, SByte time)
+        {
+            var data = new[] { (Byte)'B', run, scriptid, repeats, fade, (byte)time };
+            _i2Cadapter.WriteBytes(_i2C, data);
+        }
+        //{'B',playornot, scriptid, repeats, fade, time} 
         public byte[] GetColor()
         {
             return ReadFromDevice((Byte)'g', 3);

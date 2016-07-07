@@ -1,4 +1,6 @@
+using System;
 using System.Threading;
+using System.Collections;
 using Microsoft.SPOT;
 using Microsoft.SPOT.Hardware;
 using SecretLabs.NETMF.Hardware;
@@ -78,6 +80,20 @@ namespace NetDuinoUtils.Utils
                 _blinkm.StopScript();
             }
         }
+        public void SetTimeAdjust(SByte speed)
+        {
+            lock (_lockObject)
+            {
+                _blinkm.SetTimeAdjust(speed);
+            }
+        }
+        public void SetStartupParameters(Byte run, Byte scriptid, Byte repeats, Byte fade, SByte time)
+        {
+            lock (_lockObject)
+            {
+                _blinkm.SetStartupParameters(run, scriptid, repeats, fade, time);
+            }
+        }
         public byte[] GetColor()
         {
             lock (_lockObject)
@@ -85,6 +101,7 @@ namespace NetDuinoUtils.Utils
                 return _blinkm.GetColor();
             }
         }
+        
         #endregion
     }
 }

@@ -10,12 +10,12 @@ namespace NetDuinoUtils.Utils
     public class TMP100Reader
     {
         #region Data
-
+        
         private TMP100Sensor _tmp;
         private static object _lockObject = new object();
 
         private static double _temperature = 0;
-        private static AutoResetEvent mutex = new AutoResetEvent(false);
+        //private static AutoResetEvent mutex = new AutoResetEvent(false);
 
         private static TMP100Reader _instance;
 
@@ -42,7 +42,7 @@ namespace NetDuinoUtils.Utils
 
         #endregion
 
-        #region Writer
+        #region Sensor Reading
 
         public double GetTemperature()
         {

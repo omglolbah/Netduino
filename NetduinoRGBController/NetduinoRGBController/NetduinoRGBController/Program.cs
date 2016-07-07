@@ -26,13 +26,15 @@ namespace NetduinoRGBController
             // Initialize the network interface with a static IP
             Microsoft.SPOT.Net.NetworkInformation.NetworkInterface.GetAllNetworkInterfaces()[0].EnableStaticIP("10.0.0.225", "255.255.255.0", "10.0.0.4");
             Debug.Print(Microsoft.SPOT.Net.NetworkInformation.NetworkInterface.GetAllNetworkInterfaces()[0].IPAddress);
-            NetDuinoUtils.Utils.SyncTime.Update("time.nist.gov", 1);
+            NetDuinoUtils.Utils.SyncTime.Update("pool.ntp.org", 1);
         }
 
         public static void Main()
         {
             //set static ip
             InitializeServer();
+
+            TMP100LoggerService tmp100logger = new TMP100LoggerService(1000, 60);
 
             LedPulser.Instance.Pulse(1000); 
             
@@ -51,26 +53,6 @@ namespace NetduinoRGBController
 
             RunUtil.KeepRunning();
 
-                //double temp = GetTemperature();
-                
-                //byte[] data = _BlinkM.ReadSomething(0x67, 3);
-                //Debug.Print("data=" + data[0] + "-" + data[1] + "-" + data[2]);
-
-                //double r = temp * 6;
-                //byte rb = (byte)r;
-                //_BlinkM.WriteColor(rb, 0, 0);
-                //Thread.Sleep((int)temp*100);
-
-                /*
-                _BlinkM.WriteColor(0, 0, 0);
-                Thread.Sleep(500);
-                _BlinkM.WriteColor(255, 0, 0);
-                Thread.Sleep(500);
-                _BlinkM.WriteColor(0, 0, 255);
-                Thread.Sleep(500);
-                _BlinkM.WriteColor(0, 0, 0);
-                Thread.Sleep(1);
-                 */
 
             #region RGB
             /*
